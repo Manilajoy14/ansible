@@ -27,15 +27,15 @@ jobs:
 
       - name: Terraform Init
         run: terraform init
-        working-directory: ./OneDrive/Documents/Testing Project/terraform
+        working-directory: ./OneDrive/Documents/Testing Project
         
 
       - name: Terraform Plan
         run: terraform plan
-        working-directory: ./OneDrive/Documents/Testing Project/terraform
+        working-directory: ./OneDrive/Documents/Testing Project
         
 
       - name: Terraform Apply
         run: terraform apply -auto-approve
-        working-directory: ./OneDrive/Documents/Testing Project/terraform
+        working-directory: ./OneDrive/Documents/Testing Project
         
