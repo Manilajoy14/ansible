@@ -6,7 +6,7 @@ resource "aws_iam_role" "lambdaexecutiontest"{
 data "aws_iam_policy_document" "trust_policy" {
 statement {
   actions = ["sts:AssumeRole"]
-  effect = ["Allow"]
+  effect = "Allow"
 
   principals {
     type = "Service"
@@ -17,7 +17,7 @@ statement {
 data "aws_iam_policy_document" "permission_policy" {
       statement {
         actions = ["s3:putObject"]
-        effect = "allow"
+        effect = "Allow"
         resources = ["*"]
       }  
 }
