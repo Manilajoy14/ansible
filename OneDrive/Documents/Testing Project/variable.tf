@@ -1,12 +1,6 @@
-variable "subnet_config" {
-type = map(obkject({
-cidr_blocks = string
-az = string
-
-Default = {
-
-    "public - 1a" = {cidr_blocks = "", az = ""}
+variable "trusted_service"{
+type = string
+description = "the aws service principal"
+default = "lambda.amazonaws.com" 
 }
-
-}))  
-}
+ 

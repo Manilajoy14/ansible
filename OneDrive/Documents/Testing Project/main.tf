@@ -1,23 +1,33 @@
-resource "aws_security_group" "example_sg" {
-  name        = "example-security-group"
-  description = "Security group for web server"
-  vpc_id      = "vpc-07b438691013610e9"   # Replace with your VPC ID
+resource "aws_iam_role" "lambdaexecutiontest"{
+      name = "lambdaexecutiontest"
+      assume_role_policy = data.aws_iam_policy_document.trust_policy.json
+}
 
-  # Inbound rules
-  ingress {
-    description = "Allow HTTP"
-    from_port   = 80
-    to_port     = 80
-    protocol    = "tcp"
-    cidr_blocks = ["10.141.2.2/32"]
+data "aws_iam_policy_document" "trust_policy" {
+statement {
+  actions = ["sts:AssumeRole"]
+  effect = ["Allow"]
 
-    
+  principals {
+    type = "Service"
+    identifiers = [var.trusted_service]
+  }
+}
+}
+data "aws_iam_policy_document" "permission_policy" {
+      statement {
+        actions = ["s3:putObject"]
+        effect = "allow"
+        resources = ["*"]
+      }  
+}
+resource "aws_iam_policy" "test" {
+  name = "test"
+  policy = data.aws_iam_policy_document.permission_policy.json
+
+  tags = {
+      environment = "test"
+      manageby = "terraform"
   }
 }
 
-resource "aws_iam_user" "example"{
-name = "example"
-path = "/"
-
-
-}
