@@ -10,9 +10,7 @@ resource "aws_security_group_rule" "allowinbound"{
       from_port = 443
       to_port = 443
       protocol = "tcp"
-      cidr_blocks = [ 
-      "192.168.1.43/32"
-      ]
+      cidr_blocks = var.allowinbound
       security_group_id = data.aws_security_group.test.id
 }
 
