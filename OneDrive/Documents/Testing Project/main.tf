@@ -12,7 +12,7 @@ resource "aws_security_group_rule" "allow"{
       security_group_id = aws_security_group.test.id
 }
 
-resource "aws_security_group_rule" "allow"{
+resource "aws_security_group_rule" "allowssh"{
       type = "ingress"
       from_port = 22
       to_port = 22
