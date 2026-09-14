@@ -1,6 +1,6 @@
 data "aws_security_group" "test"{
-      filter = "test"
-      value = "test"
+      filter = "group-name"
+      value = ["test"]
 }
 
 resource "aws_security_group_rule" "inbound"{
