@@ -14,7 +14,14 @@ resource "aws_security_group_rule" "allow"{
       security_group_id = data.aws_security_group.test.id
 }
 
-resource "aws_vpc_security_group_ingress_rule" "allowssh"{
+data "aws_security_group" "sg"{
+      filter {
+            name = "group-name"
+            values =["test"]
+      }
+}
+
+resource "aws_security_group_rule" "allowssh"{
       type = "ingress"
       from_port = 22
       to_port = 22
