@@ -1,3 +1,8 @@
+data "aws_security_group" "test"{
+      filter = "test"
+      value = "test"
+}
+
 resource "aws_security_group_rule" "inbound"{
       type = "ingress"
       from_port = 443
@@ -9,3 +14,4 @@ resource "aws_security_group_rule" "inbound"{
       ]
       security_group_id = aws_security_group.test.id
 }
+
