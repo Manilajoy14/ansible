@@ -14,11 +14,11 @@ resource "aws_security_group_rule" "allow"{
       security_group_id = data.aws_security_group.test.id
 }
 
-resource "aws_security_group_rule" "allowssh"{
+resource "aws_vpc_security_group_ingress_rule" "allowssh"{
       type = "ingress"
       from_port = 22
       to_port = 22
       protocol = "tcp"
       cidr_blocks = ["192.168.1.1/32"]
-      security_group_id = data.aws_security_group.test.id
+      security_group_id = data.aws_security_group.sg.id
 }
