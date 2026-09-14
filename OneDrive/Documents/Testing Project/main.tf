@@ -1,6 +1,8 @@
-resource "aws_security_group" "test"{
-      name = "test"
-      description = "test1"
+data "aws_security_group" "sg"{
+      filter {
+            name = "group-name"
+            values =["test"]
+      }
 }
 
 resource "aws_security_group_rule" "allow"{
