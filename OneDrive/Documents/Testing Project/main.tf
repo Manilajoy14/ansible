@@ -1,18 +1,13 @@
-data "aws_security_group" "test"{
-      filter{
-      name = "group-name"
-      values = ["test"]
-      } 
+resource "aws_security_group" "test"{
+      name = test
+      description = test1
 }
 
-resource "aws_security_group_rule" "allowinbound"{
-      for_each = var.allowinbound
-
-      type = "ingress"
+resource "aws_security_group_rule" "allow"{
+      type = ingress
       from_port = 443
       to_port = 443
       protocol = "tcp"
-      cidr_blocks = [each.value]
-      security_group_id = data.aws_security_group.test.id
+      cidr_blocks = ["192.168.1.1/32"]
+      security_group_id = aws_security_group.test.id
 }
-
