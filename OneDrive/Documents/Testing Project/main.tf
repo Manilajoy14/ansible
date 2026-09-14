@@ -11,6 +11,7 @@ resource "aws_security_group" "test" {
       ingress {
             from_port = 443
             to_port = 443
+            protocol = "tcp"
             cidr_blocks =["192.168.1.21/32"]
       }
 }
