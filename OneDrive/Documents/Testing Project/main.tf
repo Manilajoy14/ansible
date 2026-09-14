@@ -1,8 +1,3 @@
-resource "aws_security_group" "test" {
-      name = "test"
-      description = "test1"
-}
-
 resource "aws_security_group_rule" "inbound"{
       type = "ingress"
       from_port = 443
