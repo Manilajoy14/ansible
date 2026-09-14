@@ -1,7 +1,7 @@
 data "aws_security_group" "test"{
       filter{
       name = "group-name"
-      value = ["test"]
+      values = ["test"]
       } 
 }
 
