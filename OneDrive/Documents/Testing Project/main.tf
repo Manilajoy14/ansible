@@ -1,7 +1,11 @@
-resource "aws_iam_account_password_policy" "strickcompliance" {
-      password_reuse_prevention = var.password_reuse_prevention
-      max_password_age = var.max_password_age
-      require_lowercase_characters = var.require_lowercase_characters
-      minimum_password_length = var.mininum_password_length
-  
+resource "aws_security_group" "test" {
+      name = "test"
+      description = "test1"
+
+      ingress {
+            from_port = 22
+            to_port = 22
+            protocol = "tcp"
+            cidr_blocks = ["0.0.0.0/0"]
+      }
 }
