@@ -1,4 +1,4 @@
-data "aws_security_group" "sg"{
+data "aws_security_group" "test"{
       filter {
             name = "group-name"
             values =["test"]
@@ -14,7 +14,7 @@ resource "aws_security_group_rule" "allow"{
       security_group_id = data.aws_security_group.test.id
 }
 
-data "aws_security_group" "sg"{
+data "aws_security_group" "test"{
       filter {
             name = "group-name"
             values =["test"]
