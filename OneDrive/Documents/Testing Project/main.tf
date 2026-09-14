@@ -1,6 +1,6 @@
 resource "aws_security_group" "test"{
-      name = test
-      description = test1
+      name = "test"
+      description = "test1"
 }
 
 resource "aws_security_group_rule" "allow"{
